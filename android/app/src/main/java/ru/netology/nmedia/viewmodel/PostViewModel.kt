@@ -83,7 +83,7 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun unlikeById(id: Long) {
+    fun unlikeById (id: Long) {
         thread {
             val unlikedPost = repository.unlikeById(id)
             _data.postValue(
@@ -99,7 +99,6 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
 
     fun removeById(id: Long) {
         thread {
-            // Оптимистичная модель
             val old = _data.value?.posts.orEmpty()
             _data.postValue(
                 _data.value?.copy(posts = _data.value?.posts.orEmpty()
